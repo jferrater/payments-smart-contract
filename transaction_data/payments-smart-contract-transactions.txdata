@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "paymentsSmartContractExists",
+        "transactionLabel": "A test paymentsSmartContractExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createPaymentsSmartContract",
+        "transactionLabel": "A test createPaymentsSmartContract transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readPaymentsSmartContract",
+        "transactionLabel": "A test readPaymentsSmartContract transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updatePaymentsSmartContract",
+        "transactionLabel": "A test updatePaymentsSmartContract transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deletePaymentsSmartContract",
+        "transactionLabel": "A test deletePaymentsSmartContract transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]
