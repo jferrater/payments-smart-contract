@@ -17,14 +17,14 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 
-public final class PaymentsSmartContractContractTest {
+public final class PaymentsTest {
 
     @Nested
     class AssetExists {
         @Test
         public void noProperAsset() {
 
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -38,7 +38,7 @@ public final class PaymentsSmartContractContractTest {
         @Test
         public void assetExists() {
 
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -52,7 +52,7 @@ public final class PaymentsSmartContractContractTest {
 
         @Test
         public void noKey() {
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -71,7 +71,7 @@ public final class PaymentsSmartContractContractTest {
 
         @Test
         public void newAssetCreate() {
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -85,7 +85,7 @@ public final class PaymentsSmartContractContractTest {
 
         @Test
         public void alreadyExists() {
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -104,18 +104,18 @@ public final class PaymentsSmartContractContractTest {
 
     @Test
     public void assetRead() {
-        PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+        PaymentsSmartContract contract = new PaymentsSmartContract();
         Context ctx = mock(Context.class);
         ChaincodeStub stub = mock(ChaincodeStub.class);
         when(ctx.getStub()).thenReturn(stub);
 
-        PaymentsSmartContract asset = new  PaymentsSmartContract();
+        Payments asset = new Payments();
         asset.setValue("Valuable");
 
         String json = asset.toJSONString();
         when(stub.getState("10001")).thenReturn(json.getBytes(StandardCharsets.UTF_8));
 
-        PaymentsSmartContract returnedAsset = contract.readPaymentsSmartContract(ctx, "10001");
+        Payments returnedAsset = contract.readPaymentsSmartContract(ctx, "10001");
         assertEquals(returnedAsset.getValue(), asset.getValue());
     }
 
@@ -123,7 +123,7 @@ public final class PaymentsSmartContractContractTest {
     class AssetUpdates {
         @Test
         public void updateExisting() {
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -137,7 +137,7 @@ public final class PaymentsSmartContractContractTest {
 
         @Test
         public void updateMissing() {
-            PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+            PaymentsSmartContract contract = new PaymentsSmartContract();
             Context ctx = mock(Context.class);
             ChaincodeStub stub = mock(ChaincodeStub.class);
             when(ctx.getStub()).thenReturn(stub);
@@ -155,7 +155,7 @@ public final class PaymentsSmartContractContractTest {
 
     @Test
     public void assetDelete() {
-        PaymentsSmartContractContract contract = new  PaymentsSmartContractContract();
+        PaymentsSmartContract contract = new PaymentsSmartContract();
         Context ctx = mock(Context.class);
         ChaincodeStub stub = mock(ChaincodeStub.class);
         when(ctx.getStub()).thenReturn(stub);
